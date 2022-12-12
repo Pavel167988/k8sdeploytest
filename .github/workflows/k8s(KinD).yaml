@@ -10,7 +10,7 @@ jobs:
     - name: Get current date and time before deploy
       id: current_time_bd
       run: |
-        echo -e "Current date and time before deploy is:\nsd=$(date +'%T-%Y-%m-%d')\n" >> report.log 2>&1
+        echo -e "Current date and time before deploy is:\n$(date +'%T-%Y-%m-%d')\n" >> report.log 2>&1
       
     - name: Setup KinD
       uses: helm/kind-action@v1.4.0
@@ -18,7 +18,7 @@ jobs:
     - name: Get current date and time after deploy
       id: current_time_ad
       run: |
-        echo -e "Current date and time after deploy is:\nld=$(date +'%T-%Y-%m-%d')\n" >> report.log 2>&1
+        echo -e "Current date and time after deploy is:\n$(date +'%T-%Y-%m-%d')\n" >> report.log 2>&1
         
     - name: Get current date and time after deploy
       run: |

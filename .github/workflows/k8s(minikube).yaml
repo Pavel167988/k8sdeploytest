@@ -20,7 +20,7 @@ jobs:
       run: |
         echo -e "Current date and time after deploy is:\n$(date +'%T-%Y-%m-%d')\n" >> report.log 2>&1
         
-    - name: Get info from KinD
+    - name: Get info from minikube
       run: |
         echo -e "nodes: $(kubectl get nodes | grep -c 'Ready')" >> report.log 2>&1
         echo -e "$(kubectl get nodes)\n" >> report.log 2>&1

@@ -12,8 +12,7 @@ jobs:
       run: |
         echo -e "Current date and time before deploy is:\n$(date +'%T-%Y-%m-%d')\n" >> report.log 2>&1
         echo "ct=$(date +'%T-%Y-%m-%d')"
-        echo "${{ steps.ct.outputs.ct }}"
-      
+   
     - name: Setup KinD
       uses: helm/kind-action@v1.4.0
       

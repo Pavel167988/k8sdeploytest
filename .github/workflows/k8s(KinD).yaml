@@ -11,6 +11,8 @@ jobs:
       id: current_time_bd
       run: |
         echo -e "Current date and time before deploy is:\n$(date +'%T-%Y-%m-%d')\n" >> report.log 2>&1
+        echo "ct=$(date +'%T-%Y-%m-%d')"
+        echo "${{ steps.ct.outputs.ct }}"
       
     - name: Setup KinD
       uses: helm/kind-action@v1.4.0
@@ -24,7 +26,7 @@ jobs:
       run: |
         echo -e "nodes: $(kubectl get nodes | grep -c 'Ready')" >> report.log 2>&1
         echo -e "$(kubectl get nodes)\n" >> report.log 2>&1
-        echo -e "Versions of k8s:\n$(kubectl version)\n" >> report.log 2>&1      
+        echo -e "Versions of k8s:\n$(kubectl version --short)\n" >> report.log 2>&1      
     - name: Upload report
       uses: actions/upload-artifact@v2
       with:

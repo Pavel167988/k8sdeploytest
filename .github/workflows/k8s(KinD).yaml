@@ -26,6 +26,7 @@ jobs:
         echo -e "nodes: $(kubectl get nodes | grep -c 'Ready')" >> report.log 2>&1
         echo -e "$(kubectl get nodes)\n" >> report.log 2>&1
         echo -e "Versions of k8s:\n$(kubectl version --short)\n" >> report.log 2>&1      
+        
     - name: Upload report
       uses: actions/upload-artifact@v2
       with:
